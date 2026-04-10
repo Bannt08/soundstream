@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.soundstream_app.data.SessionManager
 import com.example.soundstream_app.databinding.ActivityLoginBinding
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -20,9 +23,19 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.etPassword.text?.toString()?.trim().orEmpty()
 
             if (username.isNotEmpty() && password.isNotEmpty()) {
-                // TODO: Replace with database/API login validation later.
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
+                lifecycleScope.launch {
+                    val success = SessionManager.login(this@LoginActivity, username, password)
+                    if (success) {
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            getString(R.string.login_error),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
             } else {
                 Toast.makeText(this, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
             }

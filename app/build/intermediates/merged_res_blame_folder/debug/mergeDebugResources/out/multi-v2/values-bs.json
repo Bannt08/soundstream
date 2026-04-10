@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.soundstream_app-mergeDebugResources-46:/values-bs/values-bs.xml",
+            "outputFile": "com.example.soundstream_app-mergeDebugResources-50:/values-bs/values-bs.xml",
             "map": [
                 {
                     "source": "C:\\Users\\banng\\.gradle\\caches\\9.0.0\\transforms\\3b52df4bb1b7d750d9dab291ec4512a4\\transformed\\appcompat-1.7.1\\res\\values-bs\\values-bs.xml",

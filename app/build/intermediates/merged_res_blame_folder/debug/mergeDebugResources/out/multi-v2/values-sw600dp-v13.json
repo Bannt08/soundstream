@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.soundstream_app-mergeDebugResources-46:/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "outputFile": "com.example.soundstream_app-mergeDebugResources-50:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\banng\\.gradle\\caches\\9.0.0\\transforms\\cd7b9314b61f0aafb9ecfdbcd78720d5\\transformed\\material-1.13.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",

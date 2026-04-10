@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentContainerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.soundstream_app.R;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -26,12 +27,16 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final FragmentContainerView navHostFragment;
 
+  @NonNull
+  public final MaterialToolbar topAppBar;
+
   private ActivityMainBinding(@NonNull ConstraintLayout rootView,
       @NonNull BottomNavigationView bottomNavigation,
-      @NonNull FragmentContainerView navHostFragment) {
+      @NonNull FragmentContainerView navHostFragment, @NonNull MaterialToolbar topAppBar) {
     this.rootView = rootView;
     this.bottomNavigation = bottomNavigation;
     this.navHostFragment = navHostFragment;
+    this.topAppBar = topAppBar;
   }
 
   @Override
@@ -73,8 +78,14 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, bottomNavigation,
-          navHostFragment);
+      id = R.id.topAppBar;
+      MaterialToolbar topAppBar = ViewBindings.findChildViewById(rootView, id);
+      if (topAppBar == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((ConstraintLayout) rootView, bottomNavigation, navHostFragment,
+          topAppBar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

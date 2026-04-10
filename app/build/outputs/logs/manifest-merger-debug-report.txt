@@ -50,6 +50,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] C:\Users\ban
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\19f0f5d5fc49ab5a7e4bf0ba7c5932d3\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\2548e6f6271b13b2750314807d817185\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-ktx:1.18.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\b3d7e4daaae079ce3dea477259197cd5\transformed\core-ktx-1.18.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.room:room-ktx:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\bbfd7d428502c2316a4e6d11a5030d6d\transformed\room-ktx-2.7.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\banng\.gradle\caches\9.0.0\transforms\344eff9e9088c155c508427ec9f44cc8\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\cea45341e9b5e8428d240f748688ecac\transformed\core-viewtree-1.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\banng\.gradle\caches\9.0.0\transforms\465503a2d840d2c5034f6e4588cf3d2e\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
@@ -60,6 +62,8 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\banng\.gradle\ca
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\banng\.gradle\caches\9.0.0\transforms\2d81564e200e7d6ae9c61af0ab5dfea5\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\3213f404d4fdca4d1083bade53db5765\transformed\tracing-1.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\5e5dc66d9a7b848113510c8fed660845\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-framework-android:2.5.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\1dc9412b6abec0da80b56abf4a8cd829\transformed\sqlite-framework-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-android:2.5.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\fa5b0755bdd99b97bc8d199ad5cf4db7\transformed\sqlite-release\AndroidManifest.xml:17:1-22:12
 	package
 		INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -83,6 +87,8 @@ MERGED from [androidx.core:core:1.18.0] C:\Users\banng\.gradle\caches\9.0.0\tran
 MERGED from [androidx.core:core:1.18.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\3939fc21a31d3f61db1aaaaa9e3d4bd5\transformed\core-1.18.0\AndroidManifest.xml:28:5-89
 MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\004ec8d55529cd7a10817efdae92ceb4\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\004ec8d55529cd7a10817efdae92ceb4\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\banng\.gradle\caches\9.0.0\transforms\465503a2d840d2c5034f6e4588cf3d2e\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\banng\.gradle\caches\9.0.0\transforms\465503a2d840d2c5034f6e4588cf3d2e\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\6a483578b2952644e71f728625680b80\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
@@ -219,6 +225,10 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] C
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\2548e6f6271b13b2750314807d817185\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core-ktx:1.18.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\b3d7e4daaae079ce3dea477259197cd5\transformed\core-ktx-1.18.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-ktx:1.18.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\b3d7e4daaae079ce3dea477259197cd5\transformed\core-ktx-1.18.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-ktx:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\bbfd7d428502c2316a4e6d11a5030d6d\transformed\room-ktx-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\bbfd7d428502c2316a4e6d11a5030d6d\transformed\room-ktx-2.7.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\banng\.gradle\caches\9.0.0\transforms\344eff9e9088c155c508427ec9f44cc8\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\banng\.gradle\caches\9.0.0\transforms\344eff9e9088c155c508427ec9f44cc8\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\cea45341e9b5e8428d240f748688ecac\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
@@ -239,6 +249,10 @@ MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\banng\.gradle\caches\9.0.0
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\3213f404d4fdca4d1083bade53db5765\transformed\tracing-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\5e5dc66d9a7b848113510c8fed660845\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\5e5dc66d9a7b848113510c8fed660845\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework-android:2.5.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\1dc9412b6abec0da80b56abf4a8cd829\transformed\sqlite-framework-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework-android:2.5.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\1dc9412b6abec0da80b56abf4a8cd829\transformed\sqlite-framework-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-android:2.5.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\fa5b0755bdd99b97bc8d199ad5cf4db7\transformed\sqlite-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-android:2.5.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\fa5b0755bdd99b97bc8d199ad5cf4db7\transformed\sqlite-release\AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
 		INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
@@ -303,6 +317,16 @@ ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\banng\.gradle\
 		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\004ec8d55529cd7a10817efdae92ceb4\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:31:17-49
 	android:name
 		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\004ec8d55529cd7a10817efdae92ceb4\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:30:17-78
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:24:9-28:63
+	android:exported
+		ADDED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:28:13-60
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:26:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime-android:2.7.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\703053d4a95df4d7d04430059f46cdf2\transformed\room-runtime-release\AndroidManifest.xml:25:13-74
 meta-data#androidx.profileinstaller.ProfileInstallerInitializer
 ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\6a483578b2952644e71f728625680b80\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
 	android:value
