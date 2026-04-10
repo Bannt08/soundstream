@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">soundstream_app</string>
+    <string name="login_title">Login SoundStream</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Đăng nhập</string>
+    <string name="login_error">Vui lòng nhập username và password</string>
+    <string name="good_morning">Good morning Desta!</string>
+    <string name="see_all">See all</string>
+    <string name="made_for_you">Made for you</string>
+    <string name="popular_singer">Popular singer</string>
+    <string name="favorite_song">Favorite song</string>
+    <string name="discover">Discover</string>
+    <string name="liked">Liked</string>
+    <string name="playlists">Playlists</string>
+    <string name="settings">Settings</string>
+    <string name="open_lyrics">Open lyrics</string>
+    <string name="indonesian_pops">Indonesian pops</string>
+</resources>

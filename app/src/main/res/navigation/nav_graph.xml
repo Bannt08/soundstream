@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/discoverFragment">
+
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="com.example.soundstream_app.ui.screens.DiscoverFragment"
+        android:label="Discover">
+        <action
+            android:id="@+id/action_discoverFragment_to_playerDetailFragment"
+            app:destination="@id/playerDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/likedFragment"
+        android:name="com.example.soundstream_app.ui.screens.LikedFragment"
+        android:label="Liked" />
+
+    <fragment
+        android:id="@+id/playlistsFragment"
+        android:name="com.example.soundstream_app.ui.screens.PlaylistsFragment"
+        android:label="Playlists" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.soundstream_app.ui.screens.SettingsFragment"
+        android:label="Settings" />
+
+    <fragment
+        android:id="@+id/playerDetailFragment"
+        android:name="com.example.soundstream_app.ui.screens.PlayerDetailFragment"
+        android:label="Player Detail" />
+</navigation>
