@@ -4,6 +4,9 @@
     <color name="card_bg">#FFFFFFFF</color>
     <color name="primary_text">#161D1A</color>
     <color name="secondary_text">#7A7A7A</color>
+    <color name="primary">#4B8F9B</color>
+    <color name="primary_variant">#387A85</color>
+    <color name="on_primary">#FFFFFFFF</color>
     <color name="accent">#4B8F9B</color>
     <color name="accent_soft">#CFE7EA</color>
     <color name="dark_overlay">#9E000000</color>

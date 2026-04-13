@@ -15,6 +15,13 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SessionManager.restoreSession(this)
+        if (SessionManager.hasActiveSession) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        }
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -38,6 +45,13 @@ class LoginActivity : AppCompatActivity() {
                 }
             } else {
                 Toast.makeText(this, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnGuest.setOnClickListener {
+            if (SessionManager.loginAsGuest(this)) {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
         }
     }

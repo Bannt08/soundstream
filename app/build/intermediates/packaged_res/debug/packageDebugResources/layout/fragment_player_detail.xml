@@ -157,24 +157,25 @@
                 app:tint="@android:color/white" />
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="14dp"
-                android:background="@android:color/transparent"
-                android:src="@android:drawable/ic_media_previous"
-                app:tint="@android:color/white" />
+            android:id="@+id/btnPrevious"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="14dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_media_previous"
+            app:tint="@android:color/white" />
 
-            <ImageButton
-                android:id="@+id/btnPlayPauseDetail"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="14dp"
-                android:layout_marginEnd="14dp"
-                android:background="@android:drawable/btn_default"
-                android:src="@android:drawable/ic_media_pause" />
+        <ImageButton
+            android:id="@+id/btnPlayPauseDetail"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
+            android:background="@android:drawable/btn_default"
+            android:src="@android:drawable/ic_media_pause" />
 
-            <ImageButton
-                android:layout_width="40dp"
+        <ImageButton
+            android:id="@+id/btnNext"
                 android:layout_height="40dp"
                 android:background="@android:color/transparent"
                 android:src="@android:drawable/ic_media_next"

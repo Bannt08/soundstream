@@ -28,32 +28,54 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val user = SessionManager.currentUser
-
-        binding.tvUserName.text = getString(R.string.settings_user_name, user.username)
-        binding.tvMembership.text = if (user.isPremium) {
-            getString(R.string.membership_premium)
-        } else {
-            getString(R.string.membership_free)
-        }
-        binding.tvArtistStatus.text = if (user.isArtist) {
-            getString(R.string.now_artist)
-        } else {
-            getString(R.string.not_artist_yet)
-        }
-        binding.tvPremiumHint.text = getString(R.string.settings_upload_hint)
-        binding.btnUploadMusic.isEnabled = user.isPremium
-        binding.btnUploadMusic.alpha = if (user.isPremium) 1f else 0.5f
+        updateUserView()
 
         binding.btnUploadMusic.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_uploadFragment)
         }
 
+        binding.btnLogin.setOnClickListener {
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+        }
+
         binding.btnLogout.setOnClickListener {
-            SessionManager.logout()
+            SessionManager.logout(requireContext())
             startActivity(Intent(requireContext(), LoginActivity::class.java))
             requireActivity().finish()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateUserView()
+    }
+
+    private fun updateUserView() {
+        val user = SessionManager.currentUser
+        val username = user?.username ?: getString(R.string.guest_name)
+        val isLoggedIn = user != null
+
+        binding.tvUserName.text = getString(R.string.settings_user_name, username)
+        binding.tvMembership.text = when {
+            user?.isPremium == true -> getString(R.string.membership_premium)
+            user != null -> getString(R.string.membership_free)
+            else -> getString(R.string.membership_not_logged_in)
+        }
+        binding.tvArtistStatus.text = if (user?.isArtist == true) {
+            getString(R.string.now_artist)
+        } else {
+            getString(R.string.not_artist_yet)
+        }
+        binding.tvPremiumHint.text = if (isLoggedIn) {
+            getString(R.string.settings_upload_hint)
+        } else {
+            getString(R.string.settings_upload_hint_guest)
+        }
+
+        binding.btnUploadMusic.isEnabled = user?.isPremium == true
+        binding.btnUploadMusic.alpha = if (user?.isPremium == true) 1f else 0.5f
+        binding.btnLogin.visibility = if (isLoggedIn) View.GONE else View.VISIBLE
+        binding.btnLogout.visibility = if (isLoggedIn) View.VISIBLE else View.GONE
     }
 
     override fun onDestroyView() {

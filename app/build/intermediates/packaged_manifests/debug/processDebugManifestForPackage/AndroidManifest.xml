@@ -25,9 +25,6 @@
         android:theme="@style/Theme.SoundStream" >
         <activity
             android:name="com.example.soundstream_app.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.soundstream_app.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,6 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.soundstream_app.LoginActivity"
+            android:exported="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

@@ -40,32 +40,43 @@ class UploadFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvUploadHint.text = if (currentUser.isPremium) {
+        val user = currentUser
+        if (user == null) {
+            binding.tvUploadHint.text = getString(R.string.upload_not_logged_in)
+            binding.btnChooseAudio.text = getString(R.string.choose_audio_file)
+            binding.btnChooseAudio.isEnabled = false
+            binding.tvStatus.text = getString(R.string.upload_not_logged_in)
+            binding.tvArtistStatus.text = getString(R.string.not_artist_yet)
+            return
+        }
+
+        binding.tvUploadHint.text = if (user.isPremium) {
             getString(R.string.upload_premium_hint)
         } else {
             getString(R.string.upload_not_premium)
         }
 
         binding.btnChooseAudio.text = getString(R.string.choose_audio_file)
-        binding.btnChooseAudio.isEnabled = currentUser.isPremium
+        binding.btnChooseAudio.isEnabled = user.isPremium
         binding.btnChooseAudio.setOnClickListener {
-            if (currentUser.isPremium) {
+            if (user.isPremium) {
                 pickAudio.launch("audio/*")
             }
         }
 
         updateArtistStatus()
-        if (!currentUser.isPremium) {
+        if (!user.isPremium) {
             binding.tvStatus.text = getString(R.string.premium_required_message)
         }
     }
 
     private fun onAudioSelected(uri: Uri) {
+        val user = currentUser ?: return
         val trackName = uri.lastPathSegment?.substringAfterLast('/') ?: getString(R.string.uploaded_song)
         val uploadedSong = Song(
             id = UUID.randomUUID().toString(),
             title = trackName,
-            artistName = currentUser.username,
+            artistName = user.username,
             imageResId = R.drawable.demo_artist_1,
             duration = "03:30"
         )
@@ -76,7 +87,7 @@ class UploadFragment : Fragment() {
     }
 
     private fun updateArtistStatus() {
-        binding.tvArtistStatus.text = if (currentUser.isArtist) {
+        binding.tvArtistStatus.text = if (currentUser?.isArtist == true) {
             getString(R.string.now_artist)
         } else {
             getString(R.string.not_artist_yet)

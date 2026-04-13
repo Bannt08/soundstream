@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/discoverFragment"
         android:name="com.example.soundstream_app.ui.screens.DiscoverFragment"
-        android:label="Discover">
+        android:label="Home">
         <action
             android:id="@+id/action_discoverFragment_to_playerDetailFragment"
             app:destination="@id/playerDetailFragment" />

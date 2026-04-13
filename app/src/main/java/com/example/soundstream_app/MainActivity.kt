@@ -16,6 +16,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SessionManager.restoreSession(this)
+        if (!SessionManager.hasActiveSession) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -43,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menu_logout -> {
-                    SessionManager.logout()
+                    SessionManager.logout(this)
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                     true

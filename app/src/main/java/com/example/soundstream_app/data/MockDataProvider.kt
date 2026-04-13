@@ -52,7 +52,7 @@ object MockDataProvider {
         ),
         Song(
             id = "s3",
-            title = "Hidup seperti ini",
+            title = "Hidup seperti này",
             artistName = "James adam",
             imageResId = R.drawable.demo_cover_1,
             duration = "3:40"
@@ -61,9 +61,11 @@ object MockDataProvider {
 
     val nowPlaying = Song(
         id = "np1",
-        title = "Hidup seperti ini",
+        title = "Hidup như này",
         artistName = "James adam",
         imageResId = R.drawable.demo_cover_1,
         duration = "3:40"
     )
+
+    val playbackQueue = listOf(nowPlaying) + favoriteSongs
 }

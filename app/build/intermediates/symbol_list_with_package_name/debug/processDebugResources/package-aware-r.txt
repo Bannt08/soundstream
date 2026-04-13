@@ -2455,6 +2455,8 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color on_primary
+color primary
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -2464,6 +2466,7 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
+color primary_variant
 color ripple_material_dark
 color ripple_material_light
 color secondary_text
@@ -3828,11 +3831,14 @@ id bounceEnd
 id bounceStart
 id btnBack
 id btnChooseAudio
+id btnGuest
 id btnLogin
 id btnLogout
 id btnMiniPlayPause
 id btnMiniVolume
+id btnNext
 id btnPlayPauseDetail
+id btnPrevious
 id btnUploadMusic
 id buttonPanel
 id cache_measures
@@ -4575,6 +4581,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string choose_audio_file
 string clear_text_end_icon_content_description
+string continue_as_guest
 string dest_title
 string discover
 string error_a11y_label
@@ -4584,6 +4591,7 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string favorite_song
 string good_morning
+string guest_name
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string indonesian_pops
@@ -4634,6 +4642,7 @@ string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
 string membership_free
+string membership_not_logged_in
 string membership_premium
 string mtrl_badge_numberless_content_description
 string mtrl_button_collapsed_content_description
@@ -4724,6 +4733,7 @@ string searchview_navigation_content_description
 string see_all
 string settings
 string settings_upload_hint
+string settings_upload_hint_guest
 string settings_user_name
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
@@ -4731,6 +4741,7 @@ string status_bar_notification_info_overflow
 string top_app_bar_title
 string upload_cancelled
 string upload_music
+string upload_not_logged_in
 string upload_not_premium
 string upload_premium_hint
 string upload_success_message

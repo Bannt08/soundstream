@@ -27,7 +27,13 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
   public final ImageButton btnBack;
 
   @NonNull
+  public final ImageButton btnNext;
+
+  @NonNull
   public final ImageButton btnPlayPauseDetail;
+
+  @NonNull
+  public final ImageButton btnPrevious;
 
   @NonNull
   public final ImageView imgBackground;
@@ -45,12 +51,15 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
   public final TextView tvDetailTitle;
 
   private FragmentPlayerDetailBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton btnBack, @NonNull ImageButton btnPlayPauseDetail,
+      @NonNull ImageButton btnBack, @NonNull ImageButton btnNext,
+      @NonNull ImageButton btnPlayPauseDetail, @NonNull ImageButton btnPrevious,
       @NonNull ImageView imgBackground, @NonNull SeekBar seekDetail, @NonNull LinearLayout topBar,
       @NonNull TextView tvDetailArtist, @NonNull TextView tvDetailTitle) {
     this.rootView = rootView;
     this.btnBack = btnBack;
+    this.btnNext = btnNext;
     this.btnPlayPauseDetail = btnPlayPauseDetail;
+    this.btnPrevious = btnPrevious;
     this.imgBackground = imgBackground;
     this.seekDetail = seekDetail;
     this.topBar = topBar;
@@ -91,9 +100,21 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnNext;
+      ImageButton btnNext = ViewBindings.findChildViewById(rootView, id);
+      if (btnNext == null) {
+        break missingId;
+      }
+
       id = R.id.btnPlayPauseDetail;
       ImageButton btnPlayPauseDetail = ViewBindings.findChildViewById(rootView, id);
       if (btnPlayPauseDetail == null) {
+        break missingId;
+      }
+
+      id = R.id.btnPrevious;
+      ImageButton btnPrevious = ViewBindings.findChildViewById(rootView, id);
+      if (btnPrevious == null) {
         break missingId;
       }
 
@@ -127,8 +148,9 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentPlayerDetailBinding((ConstraintLayout) rootView, btnBack,
-          btnPlayPauseDetail, imgBackground, seekDetail, topBar, tvDetailArtist, tvDetailTitle);
+      return new FragmentPlayerDetailBinding((ConstraintLayout) rootView, btnBack, btnNext,
+          btnPlayPauseDetail, btnPrevious, imgBackground, seekDetail, topBar, tvDetailArtist,
+          tvDetailTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

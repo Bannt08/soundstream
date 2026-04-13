@@ -6,12 +6,13 @@
     <string name="password_hint">Password</string>
     <string name="login_button">Đăng nhập</string>
     <string name="login_error">Vui lòng nhập username và password</string>
+    <string name="continue_as_guest">Tiếp tục với Guest</string>
     <string name="good_morning">Good morning Desta!</string>
     <string name="see_all">See all</string>
     <string name="made_for_you">Made for you</string>
     <string name="popular_singer">Popular singer</string>
     <string name="favorite_song">Favorite song</string>
-    <string name="discover">Discover</string>
+    <string name="discover">Home</string>
     <string name="upload_music">Upload nhạc</string>
     <string name="choose_audio_file">Chọn file nhạc</string>
     <string name="upload_success_message">Upload thành công: %1$s</string>
@@ -25,7 +26,11 @@
     <string name="settings_user_name">Tên người dùng: %1$s</string>
     <string name="membership_premium">Trạng thái: Premium</string>
     <string name="membership_free">Trạng thái: Người dùng thường</string>
+    <string name="membership_not_logged_in">Trạng thái: Chưa đăng nhập</string>
+    <string name="guest_name">Chưa đăng nhập</string>
     <string name="settings_upload_hint">Nhấn Upload nhạc để đăng bài và trở thành nghệ sĩ nếu bạn là Premium.</string>
+    <string name="settings_upload_hint_guest">Bạn chưa đăng nhập. Vui lòng đăng nhập để mở khóa tính năng Premium và upload nhạc.</string>
+    <string name="upload_not_logged_in">Bạn cần đăng nhập để upload nhạc.</string>
     <string name="logout">Logout</string>
     <string name="top_app_bar_title">SoundStream</string>
     <string name="liked">Liked</string>

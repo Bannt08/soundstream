@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +19,8 @@ class DiscoverFragment : Fragment() {
 
     private var _binding: FragmentDiscoverBinding? = null
     private val binding get() = _binding!!
+    private var isMiniPlaying = true
+    private var isMuted = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,6 +61,31 @@ class DiscoverFragment : Fragment() {
         binding.miniPlayer.tvMiniTitle.text = current.title
         binding.miniPlayer.tvMiniArtist.text = current.artistName
         binding.miniPlayer.miniPlayerContainer.setOnClickListener { openDetail() }
+        binding.miniPlayer.btnMiniPlayPause.setImageResource(
+            if (isMiniPlaying) android.R.drawable.ic_media_pause else android.R.drawable.ic_media_play
+        )
+        binding.miniPlayer.btnMiniPlayPause.setOnClickListener {
+            isMiniPlaying = !isMiniPlaying
+            binding.miniPlayer.btnMiniPlayPause.setImageResource(
+                if (isMiniPlaying) android.R.drawable.ic_media_pause else android.R.drawable.ic_media_play
+            )
+            Toast.makeText(
+                requireContext(),
+                if (isMiniPlaying) "Tiếp tục phát" else "Tạm dừng",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        binding.miniPlayer.btnMiniVolume.setOnClickListener {
+            isMuted = !isMuted
+            binding.miniPlayer.btnMiniVolume.setImageResource(
+                if (isMuted) android.R.drawable.ic_lock_silent_mode else android.R.drawable.ic_lock_silent_mode_off
+            )
+            Toast.makeText(
+                requireContext(),
+                if (isMuted) "Tắt tiếng" else "Bật tiếng",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     private fun openDetail() {

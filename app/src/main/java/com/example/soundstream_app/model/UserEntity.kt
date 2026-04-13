@@ -10,5 +10,6 @@ data class UserEntity(
     val displayName: String? = null,
     val isPremium: Boolean = false,
     val isArtist: Boolean = false,
-    val isAdmin: Boolean = false
+    val isAdmin: Boolean = false,
+    val token: String? = null
 )
