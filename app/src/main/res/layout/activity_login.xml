@@ -71,15 +71,48 @@
             android:text="@string/login_button"
             app:cornerRadius="12dp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/primary_variant" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:text="@string/or_label"
+                android:textColor="@color/secondary_text"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/primary_variant" />
+        </LinearLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGuest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/continue_as_guest"
+            android:textAllCaps="false"
+            android:textColor="@color/secondary_text"
+            app:backgroundTint="@android:color/transparent"
             app:cornerRadius="12dp"
-            app:backgroundTint="@color/primary_variant"
-            android:textColor="@color/on_primary" />
+            app:rippleColor="@color/primary_variant"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

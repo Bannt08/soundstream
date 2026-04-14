@@ -25,34 +25,41 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnLogin.setOnClickListener {
-            val username = binding.etUsername.text?.toString()?.trim().orEmpty()
-            val password = binding.etPassword.text?.toString()?.trim().orEmpty()
+        binding.btnLogin.setOnClickListener { handleLogin() }
+        binding.btnGuest.setOnClickListener { handleGuestLogin() }
+    }
 
-            if (username.isNotEmpty() && password.isNotEmpty()) {
-                lifecycleScope.launch {
-                    val success = SessionManager.login(this@LoginActivity, username, password)
-                    if (success) {
-                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                        finish()
-                    } else {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            getString(R.string.login_error),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
+    private fun handleLogin() {
+        val username = binding.etUsername.text?.toString()?.trim().orEmpty()
+        val password = binding.etPassword.text?.toString()?.trim().orEmpty()
+
+        if (username.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        lifecycleScope.launch {
+            val success = SessionManager.login(this@LoginActivity, username, password)
+            if (success) {
+                openMainScreen()
             } else {
-                Toast.makeText(this, getString(R.string.login_error), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@LoginActivity,
+                    getString(R.string.login_error),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
+    }
 
-        binding.btnGuest.setOnClickListener {
-            if (SessionManager.loginAsGuest(this)) {
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            }
+    private fun handleGuestLogin() {
+        if (SessionManager.loginAsGuest(this)) {
+            openMainScreen()
         }
+    }
+
+    private fun openMainScreen() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 }

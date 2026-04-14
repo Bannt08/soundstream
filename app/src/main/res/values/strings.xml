@@ -6,7 +6,9 @@
     <string name="password_hint">Password</string>
     <string name="login_button">Đăng nhập</string>
     <string name="login_error">Vui lòng nhập username và password</string>
+    <string name="or_label">hoặc</string>
     <string name="continue_as_guest">Tiếp tục với Guest</string>
+    <string name="register_cta">Chưa có tài khoản? -&gt; Đăng ký.</string>
     <string name="good_morning">Good morning Desta!</string>
     <string name="see_all">See all</string>
     <string name="made_for_you">Made for you</string>
