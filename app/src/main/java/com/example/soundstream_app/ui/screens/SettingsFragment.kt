@@ -54,6 +54,7 @@ class SettingsFragment : Fragment() {
         val user = SessionManager.currentUser
         val username = user?.username ?: getString(R.string.guest_name)
         val isLoggedIn = user != null
+        val isGuest = user?.isGuest == true
 
         binding.tvUserName.text = getString(R.string.settings_user_name, username)
         binding.tvMembership.text = when {
@@ -75,6 +76,7 @@ class SettingsFragment : Fragment() {
         binding.btnUploadMusic.isEnabled = user?.isPremium == true
         binding.btnUploadMusic.alpha = if (user?.isPremium == true) 1f else 0.5f
         binding.btnLogin.visibility = if (isLoggedIn) View.GONE else View.VISIBLE
+        binding.tvRegisterCta.visibility = if (isGuest) View.VISIBLE else View.GONE
         binding.btnLogout.visibility = if (isLoggedIn) View.VISIBLE else View.GONE
     }
 
