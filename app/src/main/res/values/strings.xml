@@ -31,9 +31,11 @@
     <string name="membership_free">Trạng thái: Người dùng thường</string>
     <string name="membership_not_logged_in">Trạng thái: Chưa đăng nhập</string>
     <string name="guest_name">Chưa đăng nhập</string>
-    <string name="settings_upload_hint">Nhấn Upload nhạc để đăng bài và trở thành nghệ sĩ nếu bạn là Premium.</string>
-    <string name="settings_upload_hint_guest">Bạn chưa đăng nhập. Vui lòng đăng nhập để mở khóa tính năng Premium và upload nhạc.</string>
+    <string name="settings_upload_hint">Sử dụng tab Upload để đăng nhạc nếu bạn là Premium.</string>
+    <string name="settings_upload_hint_guest">Bạn chưa đăng nhập. Vui lòng đăng nhập để mở khóa tính năng Premium và Upload.</string>
     <string name="upload_not_logged_in">Bạn cần đăng nhập để upload nhạc.</string>
+    <string name="upload_tab">Upload</string>
+    <string name="uploaded_songs_title">Bài đã upload</string>
     <string name="logout">Logout</string>
     <string name="top_app_bar_title">SoundStream</string>
     <string name="liked">Liked</string>
