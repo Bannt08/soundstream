@@ -1,6 +1,7 @@
 package com.example.soundstream_app
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import kotlinx.coroutines.launch
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private var backgroundPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,9 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        
+        startBackgroundMusic()
 
         binding.btnLogin.setOnClickListener { handleLogin() }
         binding.btnGuest.setOnClickListener { handleGuestLogin() }
@@ -59,7 +64,43 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun openMainScreen() {
+        stopBackgroundMusic()
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (isFinishing) {
+            stopBackgroundMusic()
+        } else {
+            backgroundPlayer?.pause()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        backgroundPlayer?.start()
+    }
+
+    override fun onDestroy() {
+        stopBackgroundMusic()
+        super.onDestroy()
+    }
+
+    private fun startBackgroundMusic() {
+        if (backgroundPlayer == null) {
+            backgroundPlayer = MediaPlayer.create(this, R.raw.uth).apply {
+                isLooping = true
+                seekTo(4000)
+            }
+        }
+        backgroundPlayer?.start()
+    }
+
+    private fun stopBackgroundMusic() {
+        backgroundPlayer?.stop()
+        backgroundPlayer?.release()
+        backgroundPlayer = null
     }
 }
