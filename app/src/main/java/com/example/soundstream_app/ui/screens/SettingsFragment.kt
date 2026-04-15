@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.soundstream_app.LoginActivity
 import com.example.soundstream_app.R
 import com.example.soundstream_app.data.SessionManager
@@ -29,10 +28,6 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         updateUserView()
-
-        binding.btnUploadMusic.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_uploadFragment)
-        }
 
         binding.btnLogin.setOnClickListener {
             startActivity(Intent(requireContext(), LoginActivity::class.java))
@@ -72,8 +67,6 @@ class SettingsFragment : Fragment() {
             getString(R.string.settings_upload_hint_guest)
         }
 
-        binding.btnUploadMusic.isEnabled = user?.isPremium == true
-        binding.btnUploadMusic.alpha = if (user?.isPremium == true) 1f else 0.5f
         binding.btnLogin.visibility = if (isLoggedIn) View.GONE else View.VISIBLE
         binding.btnLogout.visibility = if (isLoggedIn) View.VISIBLE else View.GONE
     }

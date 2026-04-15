@@ -67,6 +67,16 @@ abstract class AppDatabase : RoomDatabase() {
                 )
                 userDao.insertUser(
                     UserEntity(
+                        username = "tuan",
+                        password = "tuan",
+                        displayName = "Tuan",
+                        isPremium = true,
+                        isArtist = true,
+                        token = "token_tuan"
+                    )
+                )
+                userDao.insertUser(
+                    UserEntity(
                         username = "regular_user1",
                         password = "regular1",
                         displayName = "Regular One",
@@ -142,6 +152,39 @@ abstract class AppDatabase : RoomDatabase() {
                         ownerUsername = "premium_user2"
                     )
                 )
+                songDao.insertSong(
+                    SongEntity(
+                        id = "t1",
+                        title = "Tuan's Sunrise",
+                        artistName = "Tuan",
+                        imageResId = R.drawable.demo_cover_1,
+                        duration = "3:45",
+                        isUploaded = true,
+                        ownerUsername = "tuan"
+                    )
+                )
+                songDao.insertSong(
+                    SongEntity(
+                        id = "t2",
+                        title = "Late Night Beat",
+                        artistName = "Tuan",
+                        imageResId = R.drawable.demo_cover_2,
+                        duration = "4:12",
+                        isUploaded = true,
+                        ownerUsername = "tuan"
+                    )
+                )
+                songDao.insertSong(
+                    SongEntity(
+                        id = "t3",
+                        title = "City Lights",
+                        artistName = "Tuan",
+                        imageResId = R.drawable.demo_cover_3,
+                        duration = "3:30",
+                        isUploaded = true,
+                        ownerUsername = "tuan"
+                    )
+                )
 
                 val favoriteDao = database.favoriteDao()
                 favoriteDao.addFavorite(FavoriteSongEntity(username = "regular_user1", songId = "s1"))
@@ -176,11 +219,23 @@ abstract class AppDatabase : RoomDatabase() {
                         ownerUsername = "premium_user2"
                     )
                 )
+                playlistDao.insertPlaylist(
+                    PlaylistEntity(
+                        id = "tuan_album",
+                        title = "Tuan's Mix",
+                        description = "Album and uploads từ Tuan.",
+                        imageResId = R.drawable.demo_cover_3,
+                        ownerUsername = "tuan"
+                    )
+                )
                 playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "p1", songId = "s1"))
                 playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "p1", songId = "u1"))
                 playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "p1", songId = "s3"))
                 playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "p2", songId = "s2"))
                 playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "p2", songId = "u2"))
+                playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "tuan_album", songId = "t1"))
+                playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "tuan_album", songId = "t2"))
+                playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "tuan_album", songId = "t3"))
 
                 val historyDao = database.playHistoryDao()
                 historyDao.insertPlayHistory(
@@ -206,11 +261,122 @@ abstract class AppDatabase : RoomDatabase() {
                 )
                 historyDao.insertPlayHistory(
                     PlayHistoryEntity(
+                        username = "tuan",
+                        songId = "t3",
+                        playedAt = System.currentTimeMillis() - 600_000
+                    )
+                )
+                historyDao.insertPlayHistory(
+                    PlayHistoryEntity(
+                        username = "tuan",
+                        songId = "t2",
+                        playedAt = System.currentTimeMillis() - 180_000
+                    )
+                )
+                historyDao.insertPlayHistory(
+                    PlayHistoryEntity(
+                        username = "tuan",
+                        songId = "t1",
+                        playedAt = System.currentTimeMillis() - 90_000
+                    )
+                )
+                historyDao.insertPlayHistory(
+                    PlayHistoryEntity(
                         username = "admin",
                         songId = "u2",
                         playedAt = System.currentTimeMillis() - 600_000
                     )
                 )
+            }
+        }
+
+        private fun populateTuanIfMissing(database: AppDatabase) {
+            runBlocking {
+                val userDao = database.userDao()
+                if (userDao.getUser("tuan") == null) {
+                    userDao.insertUser(
+                        UserEntity(
+                            username = "tuan",
+                            password = "tuan",
+                            displayName = "Tuan",
+                            isPremium = true,
+                            isArtist = true,
+                            token = "token_tuan"
+                        )
+                    )
+
+                    val songDao = database.songDao()
+                    songDao.insertSong(
+                        SongEntity(
+                            id = "t1",
+                            title = "Tuan's Sunrise",
+                            artistName = "Tuan",
+                            imageResId = R.drawable.demo_cover_1,
+                            duration = "3:45",
+                            isUploaded = true,
+                            ownerUsername = "tuan"
+                        )
+                    )
+                    songDao.insertSong(
+                        SongEntity(
+                            id = "t2",
+                            title = "Late Night Beat",
+                            artistName = "Tuan",
+                            imageResId = R.drawable.demo_cover_2,
+                            duration = "4:12",
+                            isUploaded = true,
+                            ownerUsername = "tuan"
+                        )
+                    )
+                    songDao.insertSong(
+                        SongEntity(
+                            id = "t3",
+                            title = "City Lights",
+                            artistName = "Tuan",
+                            imageResId = R.drawable.demo_cover_3,
+                            duration = "3:30",
+                            isUploaded = true,
+                            ownerUsername = "tuan"
+                        )
+                    )
+
+                    val playlistDao = database.playlistDao()
+                    playlistDao.insertPlaylist(
+                        PlaylistEntity(
+                            id = "tuan_album",
+                            title = "Tuan's Mix",
+                            description = "Album and uploads từ Tuan.",
+                            imageResId = R.drawable.demo_cover_3,
+                            ownerUsername = "tuan"
+                        )
+                    )
+                    playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "tuan_album", songId = "t1"))
+                    playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "tuan_album", songId = "t2"))
+                    playlistDao.addSongToPlaylist(PlaylistSongCrossRef(playlistId = "tuan_album", songId = "t3"))
+
+                    val historyDao = database.playHistoryDao()
+                    historyDao.insertPlayHistory(
+                        PlayHistoryEntity(
+                            username = "tuan",
+                            songId = "t3",
+                            playedAt = System.currentTimeMillis() - 600_000
+                        )
+                    )
+                    historyDao.insertPlayHistory(
+                        PlayHistoryEntity(
+                            username = "tuan",
+                            songId = "t2",
+                            playedAt = System.currentTimeMillis() - 180_000
+                        )
+                    )
+                    historyDao.insertPlayHistory(
+                        PlayHistoryEntity(
+                            username = "tuan",
+                            songId = "t1",
+                            playedAt = System.currentTimeMillis() - 90_000
+                        )
+                    )
+                }
             }
         }
 
@@ -239,6 +405,8 @@ abstract class AppDatabase : RoomDatabase() {
                     runBlocking {
                         if (instance.userDao().getUser("admin") == null) {
                             populateInitialData(instance)
+                        } else {
+                            populateTuanIfMissing(instance)
                         }
                     }
                 }
