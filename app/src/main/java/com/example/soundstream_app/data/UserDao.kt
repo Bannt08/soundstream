@@ -21,6 +21,9 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE token = :token LIMIT 1")
     suspend fun getUserByToken(token: String): UserEntity?
 
+    @Query("SELECT COUNT(*) FROM users")
+    suspend fun countUsers(): Int
+
     @Query("SELECT COUNT(*) FROM users WHERE username != :username")
     suspend fun countOtherUsers(username: String): Int
 

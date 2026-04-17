@@ -13,6 +13,10 @@
         android:icon="@android:drawable/ic_menu_sort_by_size"
         android:title="@string/playlists" />
     <item
+        android:id="@+id/uploadFragment"
+        android:icon="@android:drawable/ic_menu_upload"
+        android:title="@string/upload_tab" />
+    <item
         android:id="@+id/settingsFragment"
         android:icon="@android:drawable/ic_menu_preferences"
         android:title="@string/settings" />

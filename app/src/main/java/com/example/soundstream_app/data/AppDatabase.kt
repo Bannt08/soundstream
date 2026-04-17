@@ -6,15 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.soundstream_app.R
 import com.example.soundstream_app.data.RawAudioProvider
 import com.example.soundstream_app.model.FavoriteSongEntity
 import com.example.soundstream_app.model.PlaylistEntity
 import com.example.soundstream_app.model.PlaylistSongCrossRef
 import com.example.soundstream_app.model.SongEntity
 import com.example.soundstream_app.model.UserEntity
+import com.example.soundstream_app.util.PasswordUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.launch
+import java.util.UUID
 
 @Database(
     entities = [
@@ -81,7 +84,45 @@ abstract class AppDatabase : RoomDatabase() {
 
         private suspend fun populateInitialData(context: Context, database: AppDatabase) {
             val songDao = database.songDao()
+            if (songDao.getAllSongs().isEmpty()) {
+                RawAudioProvider.getSongEntities(context).forEach { songDao.insertSong(it) }
+            }
+
+            val userDao = database.userDao()
+            if (userDao.countUsers() == 0) {
+                installSeedUsers(userDao)
+            }
+        }
+
+        private suspend fun repairInitialData(context: Context, database: AppDatabase) {
+            val songDao = database.songDao()
             RawAudioProvider.getSongEntities(context).forEach { songDao.insertSong(it) }
+
+            val userDao = database.userDao()
+            installSeedUsers(userDao)
+        }
+
+        private suspend fun installSeedUsers(userDao: UserDao) {
+            listOf(
+                Triple("thang", "thang", "Thang"),
+                Triple("test", "test", "Test")
+            ).forEach { (username, password, displayName) ->
+                val salt = PasswordUtils.generateSalt()
+                val hash = PasswordUtils.hashPassword(password, salt)
+                userDao.insertUser(
+                    UserEntity(
+                        username = username,
+                        passwordHash = hash,
+                        passwordSalt = salt,
+                        displayName = displayName,
+                        isPremium = true,
+                        isArtist = true,
+                        isAdmin = false,
+                        token = UUID.randomUUID().toString(),
+                        avatarResId = R.drawable.uth
+                    )
+                )
+            }
         }
 
         fun getInstance(context: Context): AppDatabase {
@@ -92,6 +133,7 @@ abstract class AppDatabase : RoomDatabase() {
                     "soundstream_app.db"
                 )
                     .addMigrations(*MIGRATIONS)
+                    .fallbackToDestructiveMigration()
                     .build()
                     .also { instance ->
                         INSTANCE = instance
@@ -103,8 +145,12 @@ abstract class AppDatabase : RoomDatabase() {
             val instance = getInstance(context)
             scope.launch {
                 try {
-                    if (instance.songDao().getAllSongs().isEmpty()) {
+                    val songsEmpty = instance.songDao().getAllSongs().isEmpty()
+                    val usersEmpty = instance.userDao().countUsers() == 0
+                    if (songsEmpty || usersEmpty) {
                         populateInitialData(context, instance)
+                    } else {
+                        repairInitialData(context, instance)
                     }
                 } catch (ex: Exception) {
                     ex.printStackTrace()

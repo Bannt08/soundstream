@@ -62,7 +62,7 @@
     <string name="no_albums_message">Bạn chưa có album nào. Vui lòng tạo album trước.</string>
     <string name="added_song_to_album">Đã thêm bài hát vào album.</string>
     <string name="album_songs_title">Album "%1$s" - danh sách bài hát</string>
-    <string name="logout">Logout</string>
+    <string name="logout">Đăng xuất</string>
     <string name="top_app_bar_title">SoundStream</string>
     <string name="liked">Liked</string>
     <string name="playlists">Playlists</string>

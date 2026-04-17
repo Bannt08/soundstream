@@ -41,6 +41,7 @@
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/back_button_description"
             android:src="@android:drawable/ic_media_previous"
             app:tint="@android:color/white" />
 
@@ -48,12 +49,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="8dp"
             android:text="@string/indonesian_pops"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <ImageButton
+            android:id="@+id/btnFavorite"
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:background="@android:color/transparent"
@@ -61,14 +64,34 @@
             app:tint="@android:color/white" />
 
         <ImageButton
+            android:id="@+id/btnAddToPlaylist"
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:background="@android:color/transparent"
-            android:src="@android:drawable/ic_menu_more"
+            android:src="@android:drawable/ic_menu_add"
             app:tint="@android:color/white" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="285dp"
+        android:layout_height="286dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/circle_disc_background"
+        android:clipToOutline="true"
+        android:contentDescription="@string/player_album_art"
+        android:padding="12dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uth"
+        app:layout_constraintBottom_toTopOf="@id/detailContentContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintVertical_bias="0.537" />
+
     <LinearLayout
+        android:id="@+id/detailContentContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -129,6 +152,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvCurrentTime"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -136,6 +160,7 @@
                 android:textColor="@android:color/white" />
 
             <TextView
+                android:id="@+id/tvRemainingTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-1:40"
@@ -148,13 +173,6 @@
             android:layout_marginTop="12dp"
             android:gravity="center"
             android:orientation="horizontal">
-
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@android:color/transparent"
-                android:src="@android:drawable/ic_menu_rotate"
-                app:tint="@android:color/white" />
 
             <ImageButton
             android:id="@+id/btnPrevious"
@@ -176,10 +194,11 @@
 
         <ImageButton
             android:id="@+id/btnNext"
-                android:layout_height="40dp"
-                android:background="@android:color/transparent"
-                android:src="@android:drawable/ic_media_next"
-                app:tint="@android:color/white" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_media_next"
+            app:tint="@android:color/white" />
 
             <ImageButton
                 android:layout_width="40dp"

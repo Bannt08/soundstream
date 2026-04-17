@@ -11,16 +11,16 @@ import com.example.soundstream_app.model.SongEntity
 object RawAudioProvider {
 
     private val rawSongMetadata = listOf(
-        RawAudioEntry("dai_lo_mat_troi", "Dai lo mat troi", "Unknown artist", R.drawable.uth),
-        RawAudioEntry("day_la_uth", "Day la UTH", "UTH", R.drawable.uth),
-        RawAudioEntry("di_dau_de_thay_hoa_bay", "Di dau de thay hoa bay", "Unknown artist", R.drawable.uth),
-        RawAudioEntry("em_khong", "Em khong", "Unknown artist", R.drawable.uth),
-        RawAudioEntry("ly_giai", "Ly giai", "Unknown artist", R.drawable.uth),
-        RawAudioEntry("mot_thoi", "Mot thoi", "Unknown artist", R.drawable.uth),
-        RawAudioEntry("nua_thap_ky", "Nua thap ky", "Unknown artist", R.drawable.uth),
-        RawAudioEntry("no_hoa", "No hoa", "Unknown artist", R.drawable.uth),
-        RawAudioEntry("only", "Only", "Unknown artist", R.drawable.uth),
-        RawAudioEntry("uth", "Uth", "Unknown artist", R.drawable.uth)
+        RawAudioEntry("dai_lo_mat_troi", "Đại lộ mặt trời", "UTH", R.drawable.uth),
+        RawAudioEntry("day_la_uth", "Đây là UTH", "UTH", R.drawable.uth),
+        RawAudioEntry("di_dau_de_thay_hoa_bay", "Đi đâu để thấy hoa bay", "UTH", R.drawable.uth),
+        RawAudioEntry("em_khong", "Em không", "UTH", R.drawable.uth),
+        RawAudioEntry("ly_giai", "Lý giải", "UTH", R.drawable.uth),
+        RawAudioEntry("mot_thoi", "Một thời", "UTH", R.drawable.uth),
+        RawAudioEntry("nua_thap_ky", "Nửa thập kỷ", "UTH", R.drawable.uth),
+        RawAudioEntry("no_hoa", "Nở hoa", "UTH", R.drawable.uth),
+        RawAudioEntry("only", "Only", "UTH", R.drawable.uth),
+        RawAudioEntry("uth", "UTH", "UTH", R.drawable.uth)
     )
 
     private val playlistCoverResIds = listOf(

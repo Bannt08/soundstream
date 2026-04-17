@@ -4,7 +4,9 @@ package com.example.soundstream_app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,10 +22,10 @@ public final class FragmentDiscoverBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final ViewMiniPlayerBinding miniPlayer;
+  public final EditText etSearch;
 
   @NonNull
-  public final RecyclerView rvFavoriteSongs;
+  public final ViewMiniPlayerBinding miniPlayer;
 
   @NonNull
   public final RecyclerView rvMadeForYou;
@@ -31,14 +33,27 @@ public final class FragmentDiscoverBinding implements ViewBinding {
   @NonNull
   public final RecyclerView rvPopularSingers;
 
-  private FragmentDiscoverBinding(@NonNull LinearLayout rootView,
-      @NonNull ViewMiniPlayerBinding miniPlayer, @NonNull RecyclerView rvFavoriteSongs,
-      @NonNull RecyclerView rvMadeForYou, @NonNull RecyclerView rvPopularSingers) {
+  @NonNull
+  public final RecyclerView rvTrendingSongs;
+
+  @NonNull
+  public final TextView tvGreeting;
+
+  @NonNull
+  public final TextView tvTrendingTitle;
+
+  private FragmentDiscoverBinding(@NonNull LinearLayout rootView, @NonNull EditText etSearch,
+      @NonNull ViewMiniPlayerBinding miniPlayer, @NonNull RecyclerView rvMadeForYou,
+      @NonNull RecyclerView rvPopularSingers, @NonNull RecyclerView rvTrendingSongs,
+      @NonNull TextView tvGreeting, @NonNull TextView tvTrendingTitle) {
     this.rootView = rootView;
+    this.etSearch = etSearch;
     this.miniPlayer = miniPlayer;
-    this.rvFavoriteSongs = rvFavoriteSongs;
     this.rvMadeForYou = rvMadeForYou;
     this.rvPopularSingers = rvPopularSingers;
+    this.rvTrendingSongs = rvTrendingSongs;
+    this.tvGreeting = tvGreeting;
+    this.tvTrendingTitle = tvTrendingTitle;
   }
 
   @Override
@@ -68,18 +83,18 @@ public final class FragmentDiscoverBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.etSearch;
+      EditText etSearch = ViewBindings.findChildViewById(rootView, id);
+      if (etSearch == null) {
+        break missingId;
+      }
+
       id = R.id.miniPlayer;
       View miniPlayer = ViewBindings.findChildViewById(rootView, id);
       if (miniPlayer == null) {
         break missingId;
       }
       ViewMiniPlayerBinding binding_miniPlayer = ViewMiniPlayerBinding.bind(miniPlayer);
-
-      id = R.id.rvFavoriteSongs;
-      RecyclerView rvFavoriteSongs = ViewBindings.findChildViewById(rootView, id);
-      if (rvFavoriteSongs == null) {
-        break missingId;
-      }
 
       id = R.id.rvMadeForYou;
       RecyclerView rvMadeForYou = ViewBindings.findChildViewById(rootView, id);
@@ -93,8 +108,26 @@ public final class FragmentDiscoverBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDiscoverBinding((LinearLayout) rootView, binding_miniPlayer,
-          rvFavoriteSongs, rvMadeForYou, rvPopularSingers);
+      id = R.id.rvTrendingSongs;
+      RecyclerView rvTrendingSongs = ViewBindings.findChildViewById(rootView, id);
+      if (rvTrendingSongs == null) {
+        break missingId;
+      }
+
+      id = R.id.tvGreeting;
+      TextView tvGreeting = ViewBindings.findChildViewById(rootView, id);
+      if (tvGreeting == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTrendingTitle;
+      TextView tvTrendingTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvTrendingTitle == null) {
+        break missingId;
+      }
+
+      return new FragmentDiscoverBinding((LinearLayout) rootView, etSearch, binding_miniPlayer,
+          rvMadeForYou, rvPopularSingers, rvTrendingSongs, tvGreeting, tvTrendingTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

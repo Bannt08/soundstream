@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:2:1-22:12
+ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:2:1-25:12
 MERGED from [androidx.databinding:viewbinding:8.9.1] C:\Users\banng\.gradle\caches\9.0.0\transforms\b4e722dc9a3f102062ce82ecc71201c0\transformed\viewbinding-8.9.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-runtime-android:2.9.7] C:\Users\banng\.gradle\caches\9.0.0\transforms\96df891ce6d00c5ff68b7c242bd9ee1d\transformed\navigation-runtime-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-android:2.9.7] C:\Users\banng\.gradle\caches\9.0.0\transforms\c56cb36c4a8b72e1da2ed2f6cbc5e289\transformed\navigation-common-release\AndroidManifest.xml:17:1-22:12
@@ -73,8 +73,8 @@ MERGED from [androidx.sqlite:sqlite-android:2.5.0] C:\Users\banng\.gradle\caches
 	xmlns:android
 		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:4:5-20:19
-INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:4:5-20:19
+ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:4:5-23:19
+INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:4:5-23:19
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\cd7b9314b61f0aafb9ecfdbcd78720d5\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.13.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\cd7b9314b61f0aafb9ecfdbcd78720d5\transformed\material-1.13.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\banng\.gradle\caches\9.0.0\transforms\b1922dee0a0cee42191a59a217320725\transformed\constraintlayout-2.2.1\AndroidManifest.xml:7:5-20
@@ -100,35 +100,41 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\banng\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.18.0] C:\Users\banng\.gradle\caches\9.0.0\transforms\3939fc21a31d3f61db1aaaaa9e3d4bd5\transformed\core-1.18.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:7:9-35
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:10:9-35
 	android:label
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:6:9-41
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:9:9-50
+	android:icon
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:7:9-45
 	android:allowBackup
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:5:9-35
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:8:9-49
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:11:9-49
+	android:name
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:5:9-47
 activity#com.example.soundstream_app.MainActivity
-ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:9:9-16:20
+ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:12:9-14:40
 	android:exported
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:11:13-36
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:14:13-37
 	android:name
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:10:13-41
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:12:13-15:29
-action#android.intent.action.MAIN
-ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:13:17-69
-	android:name
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:13:25-66
-category#android.intent.category.LAUNCHER
-ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:14:17-77
-	android:name
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:14:27-74
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:13:13-41
 activity#com.example.soundstream_app.LoginActivity
-ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:17:9-19:40
+ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:15:9-22:20
 	android:exported
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:19:13-37
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:17:13-36
 	android:name
-		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:18:13-42
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:16:13-42
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:18:13-21:29
+action#android.intent.action.MAIN
+ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:19:17-69
+	android:name
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:19:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:20:17-77
+	android:name
+		ADDED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml:20:27-74
 uses-sdk
 INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\uth\moblie_app\soundstream_app\app\src\main\AndroidManifest.xml

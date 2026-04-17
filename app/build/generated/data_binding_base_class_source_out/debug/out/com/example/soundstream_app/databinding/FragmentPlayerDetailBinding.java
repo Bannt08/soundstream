@@ -24,7 +24,13 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ImageButton btnAddToPlaylist;
+
+  @NonNull
   public final ImageButton btnBack;
+
+  @NonNull
+  public final ImageButton btnFavorite;
 
   @NonNull
   public final ImageButton btnNext;
@@ -36,7 +42,13 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
   public final ImageButton btnPrevious;
 
   @NonNull
+  public final LinearLayout detailContentContainer;
+
+  @NonNull
   public final ImageView imgBackground;
+
+  @NonNull
+  public final ImageView imgLogo;
 
   @NonNull
   public final SeekBar seekDetail;
@@ -45,26 +57,41 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
   public final LinearLayout topBar;
 
   @NonNull
+  public final TextView tvCurrentTime;
+
+  @NonNull
   public final TextView tvDetailArtist;
 
   @NonNull
   public final TextView tvDetailTitle;
 
+  @NonNull
+  public final TextView tvRemainingTime;
+
   private FragmentPlayerDetailBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton btnBack, @NonNull ImageButton btnNext,
+      @NonNull ImageButton btnAddToPlaylist, @NonNull ImageButton btnBack,
+      @NonNull ImageButton btnFavorite, @NonNull ImageButton btnNext,
       @NonNull ImageButton btnPlayPauseDetail, @NonNull ImageButton btnPrevious,
-      @NonNull ImageView imgBackground, @NonNull SeekBar seekDetail, @NonNull LinearLayout topBar,
-      @NonNull TextView tvDetailArtist, @NonNull TextView tvDetailTitle) {
+      @NonNull LinearLayout detailContentContainer, @NonNull ImageView imgBackground,
+      @NonNull ImageView imgLogo, @NonNull SeekBar seekDetail, @NonNull LinearLayout topBar,
+      @NonNull TextView tvCurrentTime, @NonNull TextView tvDetailArtist,
+      @NonNull TextView tvDetailTitle, @NonNull TextView tvRemainingTime) {
     this.rootView = rootView;
+    this.btnAddToPlaylist = btnAddToPlaylist;
     this.btnBack = btnBack;
+    this.btnFavorite = btnFavorite;
     this.btnNext = btnNext;
     this.btnPlayPauseDetail = btnPlayPauseDetail;
     this.btnPrevious = btnPrevious;
+    this.detailContentContainer = detailContentContainer;
     this.imgBackground = imgBackground;
+    this.imgLogo = imgLogo;
     this.seekDetail = seekDetail;
     this.topBar = topBar;
+    this.tvCurrentTime = tvCurrentTime;
     this.tvDetailArtist = tvDetailArtist;
     this.tvDetailTitle = tvDetailTitle;
+    this.tvRemainingTime = tvRemainingTime;
   }
 
   @Override
@@ -94,9 +121,21 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnAddToPlaylist;
+      ImageButton btnAddToPlaylist = ViewBindings.findChildViewById(rootView, id);
+      if (btnAddToPlaylist == null) {
+        break missingId;
+      }
+
       id = R.id.btnBack;
       ImageButton btnBack = ViewBindings.findChildViewById(rootView, id);
       if (btnBack == null) {
+        break missingId;
+      }
+
+      id = R.id.btnFavorite;
+      ImageButton btnFavorite = ViewBindings.findChildViewById(rootView, id);
+      if (btnFavorite == null) {
         break missingId;
       }
 
@@ -118,9 +157,21 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.detailContentContainer;
+      LinearLayout detailContentContainer = ViewBindings.findChildViewById(rootView, id);
+      if (detailContentContainer == null) {
+        break missingId;
+      }
+
       id = R.id.imgBackground;
       ImageView imgBackground = ViewBindings.findChildViewById(rootView, id);
       if (imgBackground == null) {
+        break missingId;
+      }
+
+      id = R.id.imgLogo;
+      ImageView imgLogo = ViewBindings.findChildViewById(rootView, id);
+      if (imgLogo == null) {
         break missingId;
       }
 
@@ -136,6 +187,12 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvCurrentTime;
+      TextView tvCurrentTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvCurrentTime == null) {
+        break missingId;
+      }
+
       id = R.id.tvDetailArtist;
       TextView tvDetailArtist = ViewBindings.findChildViewById(rootView, id);
       if (tvDetailArtist == null) {
@@ -148,9 +205,16 @@ public final class FragmentPlayerDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentPlayerDetailBinding((ConstraintLayout) rootView, btnBack, btnNext,
-          btnPlayPauseDetail, btnPrevious, imgBackground, seekDetail, topBar, tvDetailArtist,
-          tvDetailTitle);
+      id = R.id.tvRemainingTime;
+      TextView tvRemainingTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvRemainingTime == null) {
+        break missingId;
+      }
+
+      return new FragmentPlayerDetailBinding((ConstraintLayout) rootView, btnAddToPlaylist, btnBack,
+          btnFavorite, btnNext, btnPlayPauseDetail, btnPrevious, detailContentContainer,
+          imgBackground, imgLogo, seekDetail, topBar, tvCurrentTime, tvDetailArtist, tvDetailTitle,
+          tvRemainingTime);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

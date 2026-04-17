@@ -56,10 +56,6 @@ class SettingsFragment : Fragment() {
             requireActivity().finish()
         }
 
-        binding.tvRegisterCta.setOnClickListener {
-            showRegisterDialog()
-        }
-
         binding.btnEditProfile.setOnClickListener {
             showEditProfileDialog()
         }
@@ -98,60 +94,11 @@ class SettingsFragment : Fragment() {
             else -> getString(R.string.settings_upload_hint_guest)
         }
 
-        binding.btnLogin.visibility = if (isLoggedIn) View.GONE else View.VISIBLE
-        binding.tvRegisterCta.visibility = if (isGuest) View.VISIBLE else View.GONE
-        binding.btnLogout.visibility = if (isLoggedIn) View.VISIBLE else View.GONE
+        binding.btnLogin.visibility = if (user == null) View.VISIBLE else View.GONE
+        binding.btnLogout.visibility = if (user != null) View.VISIBLE else View.GONE
         binding.btnEditProfile.visibility = if (isLoggedIn) View.VISIBLE else View.GONE
         binding.btnChangePassword.visibility = if (isLoggedIn) View.VISIBLE else View.GONE
         binding.btnUpgradePremium.visibility = if (isLoggedIn && user?.isPremium == false) View.VISIBLE else View.GONE
-    }
-
-    private fun showRegisterDialog() {
-        val usernameInput = createTextInput(R.string.username_hint)
-        val displayNameInput = createTextInput(R.string.display_name_hint)
-        val passwordInput = createTextInput(R.string.password_hint, true)
-        val confirmPasswordInput = createTextInput(R.string.confirm_password_hint, true)
-        var selectedAvatar = R.drawable.uth
-
-        val avatarSelection = createAvatarSelector(selectedAvatar) { selectedAvatar = it }
-
-        val container = LinearLayout(requireContext()).apply {
-            orientation = LinearLayout.VERTICAL
-            setPadding(24, 24, 24, 24)
-            addView(usernameInput)
-            addView(displayNameInput)
-            addView(passwordInput)
-            addView(confirmPasswordInput)
-            addView(avatarSelection)
-        }
-
-        AlertDialog.Builder(requireContext())
-            .setTitle(getString(R.string.register_title))
-            .setView(container)
-            .setPositiveButton(getString(R.string.register_button)) { _, _ ->
-                val username = usernameInput.text?.toString()?.trim().orEmpty()
-                val displayName = displayNameInput.text?.toString()?.trim().orEmpty()
-                val password = passwordInput.text?.toString().orEmpty()
-                val confirmPassword = confirmPasswordInput.text?.toString().orEmpty()
-
-                when {
-                    username.isEmpty() || displayName.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() ->
-                        showToast(getString(R.string.register_error_fill_all))
-                    password != confirmPassword ->
-                        showToast(getString(R.string.register_error_passwords_mismatch))
-                    else -> lifecycleScope.launch {
-                        val success = SessionManager.register(requireContext(), username, password, displayName, selectedAvatar)
-                        if (success) {
-                            updateUserView()
-                            showToast(getString(R.string.register_success))
-                        } else {
-                            showToast(getString(R.string.register_failed_username_exists))
-                        }
-                    }
-                }
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
     }
 
     private fun showEditProfileDialog() {
