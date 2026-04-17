@@ -23,6 +23,8 @@ data class SongEntity(
     val artistName: String,
     val imageResId: Int,
     val duration: String,
+    val rawResId: Int? = null,
+    val sourceUri: String? = null,
     val isUploaded: Boolean = false,
     val ownerUsername: String? = null
 )

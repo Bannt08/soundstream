@@ -23,26 +23,46 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tvGreeting"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/good_morning"
+                    android:text="Xin chào !"
                     android:textColor="@color/primary_text"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-                <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@android:color/transparent"
-                    android:src="@android:drawable/ic_dialog_info" />
-
-                <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@android:color/transparent"
-                    android:src="@android:drawable/ic_menu_myplaces" />
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="8dp"
+                android:hint="Tìm kiếm bài hát hoặc nghệ sĩ"
+                android:padding="12dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/secondary_text" />
+
+            <TextView
+                android:id="@+id/tvTrendingTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Trending"
+                android:textColor="@color/primary_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTrendingSongs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingBottom="6dp" />
 
             <include layout="@layout/section_header_made_for_you" />
             <androidx.recyclerview.widget.RecyclerView
@@ -60,13 +80,6 @@
                 android:clipToPadding="false"
                 android:paddingBottom="6dp" />
 
-            <include layout="@layout/section_header_favorite_song" />
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvFavoriteSongs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:paddingBottom="8dp" />
         </LinearLayout>
     </ScrollView>
 

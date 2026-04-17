@@ -4,6 +4,7 @@ package com.example.soundstream_app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +22,9 @@ public final class ItemFavoriteSongBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final ImageButton btnDeleteSong;
+
+  @NonNull
   public final ImageView imgSong;
 
   @NonNull
@@ -29,9 +33,11 @@ public final class ItemFavoriteSongBinding implements ViewBinding {
   @NonNull
   public final TextView tvSongTitle;
 
-  private ItemFavoriteSongBinding(@NonNull LinearLayout rootView, @NonNull ImageView imgSong,
+  private ItemFavoriteSongBinding(@NonNull LinearLayout rootView,
+      @NonNull ImageButton btnDeleteSong, @NonNull ImageView imgSong,
       @NonNull TextView tvSongArtist, @NonNull TextView tvSongTitle) {
     this.rootView = rootView;
+    this.btnDeleteSong = btnDeleteSong;
     this.imgSong = imgSong;
     this.tvSongArtist = tvSongArtist;
     this.tvSongTitle = tvSongTitle;
@@ -64,6 +70,12 @@ public final class ItemFavoriteSongBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnDeleteSong;
+      ImageButton btnDeleteSong = ViewBindings.findChildViewById(rootView, id);
+      if (btnDeleteSong == null) {
+        break missingId;
+      }
+
       id = R.id.imgSong;
       ImageView imgSong = ViewBindings.findChildViewById(rootView, id);
       if (imgSong == null) {
@@ -82,8 +94,8 @@ public final class ItemFavoriteSongBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemFavoriteSongBinding((LinearLayout) rootView, imgSong, tvSongArtist,
-          tvSongTitle);
+      return new ItemFavoriteSongBinding((LinearLayout) rootView, btnDeleteSong, imgSong,
+          tvSongArtist, tvSongTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

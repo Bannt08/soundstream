@@ -10,4 +10,5 @@
     <color name="accent">#4B8F9B</color>
     <color name="accent_soft">#CFE7EA</color>
     <color name="dark_overlay">#9E000000</color>
+    <color name="mini_player_bg">#F8E9F0</color>
 </resources>

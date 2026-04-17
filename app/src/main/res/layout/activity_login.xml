@@ -131,6 +131,21 @@
                     app:backgroundTint="@android:color/transparent"
                     app:cornerRadius="12dp"
                     app:rippleColor="@color/accent_soft" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRegister"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/register_button"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary_variant"
+                    app:backgroundTint="@android:color/transparent"
+                    app:cornerRadius="12dp"
+                    app:rippleColor="@color/accent_soft" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>

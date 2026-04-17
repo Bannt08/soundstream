@@ -4,11 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.soundstream_app.data.PlaybackManager
 import com.example.soundstream_app.databinding.ActivityMainBinding
 import com.example.soundstream_app.LoginActivity
 import com.example.soundstream_app.data.SessionManager
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,19 +20,46 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        SessionManager.restoreSession(this)
-        if (!SessionManager.hasActiveSession) {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-            return
-        }
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navHost = supportFragmentManager
-            .findFragmentById(R.id.navHostFragment) as NavHostFragment
-        val navController = navHost.navController
+        if (SessionManager.hasActiveSession) {
+            setupNavigation()
+        } else {
+            lifecycleScope.launch {
+                try {
+                    val restored = SessionManager.restoreSession(this@MainActivity)
+                    if (!restored) {
+                        val loginIntent = Intent(this@MainActivity, LoginActivity::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        }
+                        startActivity(loginIntent)
+                        finish()
+                    } else {
+                        setupNavigation()
+                    }
+                } catch (ex: Exception) {
+                    ex.printStackTrace()
+                    val loginIntent = Intent(this@MainActivity, LoginActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+                    startActivity(loginIntent)
+                    finish()
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        PlaybackManager.stop()
+    }
+
+    private fun setupNavigation() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as? NavHostFragment
+        val navController: NavController = navHostFragment?.navController
+            ?: throw IllegalStateException("NavHostFragment not found in MainActivity layout")
+
         binding.bottomNavigation.setupWithNavController(navController)
 
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
