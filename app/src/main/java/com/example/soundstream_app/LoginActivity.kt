@@ -17,18 +17,21 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        SessionManager.restoreSession(this)
-        if (SessionManager.hasActiveSession) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-            return
-        }
-
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        
-        startBackgroundMusic()
+        lifecycleScope.launch {
+            try {
+                if (SessionManager.restoreSession(this@LoginActivity)) {
+                    openMainScreen()
+                } else {
+                    startBackgroundMusic()
+                }
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+                startBackgroundMusic()
+            }
+        }
 
         binding.btnLogin.setOnClickListener { handleLogin() }
         binding.btnGuest.setOnClickListener { handleGuestLogin() }
@@ -44,10 +47,19 @@ class LoginActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            val success = SessionManager.login(this@LoginActivity, username, password)
-            if (success) {
-                openMainScreen()
-            } else {
+            try {
+                val success = SessionManager.login(this@LoginActivity, username, password)
+                if (success) {
+                    openMainScreen()
+                } else {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        getString(R.string.login_error),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } catch (ex: Exception) {
+                ex.printStackTrace()
                 Toast.makeText(
                     this@LoginActivity,
                     getString(R.string.login_error),
@@ -65,7 +77,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun openMainScreen() {
         stopBackgroundMusic()
-        startActivity(Intent(this, MainActivity::class.java))
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        startActivity(intent)
         finish()
     }
 
@@ -89,13 +104,17 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun startBackgroundMusic() {
-        if (backgroundPlayer == null) {
-            backgroundPlayer = MediaPlayer.create(this, R.raw.uth).apply {
-                isLooping = true
-                seekTo(4000)
+        try {
+            if (backgroundPlayer == null) {
+                backgroundPlayer = MediaPlayer.create(this, R.raw.uth).apply {
+                    isLooping = true
+                    seekTo(4000)
+                }
             }
+            backgroundPlayer?.start()
+        } catch (ex: Exception) {
+            ex.printStackTrace()
         }
-        backgroundPlayer?.start()
     }
 
     private fun stopBackgroundMusic() {

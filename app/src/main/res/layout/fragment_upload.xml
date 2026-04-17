@@ -1,69 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/bg_app"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:paddingBottom="24dp"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/tvUploadTitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Upload nhạc"
-        android:textColor="@color/primary_text"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvArtistStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/secondary_text"
-        android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="4dp"
+            android:paddingBottom="10dp">
 
-    <TextView
-        android:id="@+id/tvUploadHint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:textColor="@color/primary_text"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tvUploadTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/profile_screen_title"
+                android:textColor="@color/primary_text"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnChooseAudio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/choose_audio_file"
-        app:cornerRadius="12dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddActions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:backgroundTint="@color/primary"
+                android:text="@string/upload_music"
+                android:textColor="@android:color/white"
+                app:cornerRadius="24dp" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/primary_text"
-        android:textSize="14sp" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:strokeColor="@color/secondary_text"
+            app:strokeWidth="1dp">
 
-    <TextView
-        android:id="@+id/tvUploadedListTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/uploaded_songs_title"
-        android:textColor="@color/primary_text"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="gone" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUploadedSongs"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="12dp" />
+                <TextView
+                    android:id="@+id/tvAccountName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/tvArtistName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvArtistStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tvUploadHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/primary_text"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/primary_text"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvAlbumsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/albums_title"
+            android:textColor="@color/primary_text"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAlbums"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvUploadedListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/uploaded_songs_title"
+            android:textColor="@color/primary_text"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUploadedSongs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

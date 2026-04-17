@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/uploadFragment"
         android:name="com.example.soundstream_app.ui.screens.UploadFragment"
-        android:label="Upload Music" />
+        android:label="@string/upload_tab" />
 
     <fragment
         android:id="@+id/playerDetailFragment"

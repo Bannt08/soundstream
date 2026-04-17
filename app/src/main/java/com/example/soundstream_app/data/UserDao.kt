@@ -21,8 +21,8 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE token = :token LIMIT 1")
     suspend fun getUserByToken(token: String): UserEntity?
 
-    @Query("SELECT * FROM users WHERE username = :username AND password = :password LIMIT 1")
-    suspend fun authenticate(username: String, password: String): UserEntity?
+    @Query("SELECT COUNT(*) FROM users WHERE username != :username")
+    suspend fun countOtherUsers(username: String): Int
 
     @Query("DELETE FROM users")
     suspend fun clearAll()
