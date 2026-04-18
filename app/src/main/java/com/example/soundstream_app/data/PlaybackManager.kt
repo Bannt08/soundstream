@@ -12,7 +12,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
 object PlaybackManager {
     private var applicationContext: Context? = null
     private var mediaPlayer: MediaPlayer? = null
