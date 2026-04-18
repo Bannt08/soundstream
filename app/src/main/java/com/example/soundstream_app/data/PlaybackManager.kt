@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
+import androidx.core.net.toUri
 import com.example.soundstream_app.model.Song
 import com.example.soundstream_app.model.PlayHistoryEntity
 import kotlinx.coroutines.CoroutineScope
@@ -16,8 +17,6 @@ object PlaybackManager {
     private var mediaPlayer: MediaPlayer? = null
     private val playbackStateChangedListeners = mutableListOf<() -> Unit>()
     private val progressHandler = Handler(Looper.getMainLooper())
-
-    // Scope để chạy các tác vụ database ngầm (Người 5)
     private val playbackScope = CoroutineScope(Dispatchers.IO)
 
     private val progressUpdater = object : Runnable {
@@ -77,8 +76,6 @@ object PlaybackManager {
             player.isLooping = false
             player.setOnCompletionListener { playNext() }
             player.start()
-
-            // --- LOGIC NGƯỜI 5: LƯU LỊCH SỬ ---
             saveToHistory(context, songToPlay.id)
         }
 
@@ -88,7 +85,7 @@ object PlaybackManager {
 
     private fun saveToHistory(context: Context, songId: String) {
         val user = SessionManager.currentUser ?: return
-        if (user.isGuest) return // Khách không lưu lịch sử
+        if (user.isGuest) return
 
         playbackScope.launch {
             try {
@@ -161,9 +158,10 @@ object PlaybackManager {
 
     private fun createMediaPlayer(context: Context, song: Song): MediaPlayer? {
         return try {
+            val resId = song.rawResId ?: 0 // Sửa lỗi Type Mismatch tại đây
             when {
-                song.rawResId != 0 -> MediaPlayer.create(context, song.rawResId)
-                !song.sourceUri.isNullOrBlank() -> MediaPlayer.create(context, Uri.parse(song.sourceUri))
+                resId != 0 -> MediaPlayer.create(context, resId)
+                !song.sourceUri.isNullOrBlank() -> MediaPlayer.create(context, song.sourceUri.toUri())
                 else -> null
             }
         } catch (ex: Exception) {
