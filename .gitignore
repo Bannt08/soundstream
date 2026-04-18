@@ -1,8 +1,13 @@
-# Local config
+# Chặn file cấu hình cá nhân (SDK path)
 local.properties
+
+# Chặn thư mục rác hệ thống và build
 .gradle/
 .idea/
 build/
 captures/
 .externalNativeBuild/
 .cxx/
+
+# Chặn các file log
+*.log
